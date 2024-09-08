@@ -658,12 +658,10 @@ span{
 .skillsContainer {
   display: flex;
   overflow: hidden;
-  padding: 2rem 0 2rem;
+  padding: 2rem 0;
   margin-bottom: var(--mb-2-5);
-  width: 58%;
-  margin: auto auto; 
-  
-  
+  width: 70%; /* Adjust width to accommodate more items */
+  margin: auto auto;
 }
 
 .scroll-content {
@@ -675,10 +673,10 @@ span{
 
 @keyframes scroll {
   0% {
-      transform: translateX(0%);
+    transform: translateX(0%);
   }
   100% {
-      transform: translateX(-50%);
+    transform: translateX(-100%); /* Ensure the content scrolls fully */
   }
 }
 
@@ -687,7 +685,7 @@ span{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #ffffffda;  
+  background: #ffffffda;
   box-shadow: 0px 5px 10px var(--first-color);
   border-radius: 2vw;
   width: 14vw;
@@ -709,17 +707,50 @@ span{
 .skill div {
   font-size: 2.1vw;
   margin-top: 1vw;
-} 
-.skill:hover div {
-  color:var(--first-color);
 }
 
+.skill:hover div {
+  color: var(--first-color);
+}
+
+/* Adjustments for small screens */
 @media screen and (max-width: 768px) {
   .skillsContainer {
     width: 90%;
-    margin: auto auto;
+    margin: auto;
+  }
+
+  .skill {
+    width: 24vw; /* Make items smaller */
+    height: 24vw;
+  }
+
+  .skill img {
+    height: 12vw; /* Adjust image size */
+    width: 12vw;
+  }
+
+  .skill div {
+    font-size: 4vw; /* Adjust font size */
   }
 }
+
+@media screen and (max-width: 480px) {
+  .skill {
+    width: 32vw; /* Further adjustments for smaller screens */
+    height: 32vw;
+  }
+
+  .skill img {
+    height: 16vw;
+    width: 16vw;
+  }
+
+  .skill div {
+    font-size: 5vw;
+  }
+}
+
 /*==================== CERTIFICATES ====================*/
 
 .certificate_wrapper > * {

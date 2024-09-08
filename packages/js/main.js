@@ -24,16 +24,14 @@ const navLink = document.querySelectorAll(".nav__link");
 
 function linkAction() {
   const navMenu = document.getElementById("nav-menu");
-  // When we click on each nav__link, we remove the show-menu class
+  // When clicking on each nav__link, remove the show-menu class
   navMenu.classList.remove("show-menu");
 }
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
 /*==================== ACCORDION SKILLS ====================*/
-
-
-
-
+// Accordion skills functionality can be added if necessary.
+// This section appears to be empty, you might need to implement this feature if required.
 
 /*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll("[data-target]"),
@@ -55,7 +53,7 @@ tabs.forEach((tab) => {
   });
 });
 
-/*====================QUALIFICATION MODAL ====================*/
+/*==================== QUALIFICATION MODAL ====================*/
 const modalViews = document.querySelectorAll(".services__modal"),
   modalBtns = document.querySelectorAll(".services__button"),
   modalCloses = document.querySelectorAll(".services__modal-close");
@@ -78,8 +76,8 @@ modalCloses.forEach((modalClose) => {
   });
 });
 
-/*==================== CERTIFICATE SECTION  ====================*/
-/*=====--- Filterable Gallery with Lightbox ---=====*/
+/*==================== CERTIFICATE SECTION ====================*/
+/*===== Filterable Gallery with Lightbox =====*/
 
 const body = document.body;
 const certificateTabs = document.querySelectorAll('.certificate_tabs li');
@@ -89,88 +87,84 @@ const lightbox = document.querySelector('.lightbox');
 const lightboxImg = document.querySelector('.lightbox_img');
 const lightboxCloseBtn = document.querySelector('.lightbox_close');
 
-// Function to filter certificate items based on the selected tab
+// Filter gallery items based on the selected tab
 const filterGallery = (filterValue) => {
-    certificateItems.forEach((currItem) => {
-        if (filterValue === 'all' || currItem.classList.contains(filterValue)) {
-            currItem.classList.remove('hide');
-            currItem.classList.add('show');
-        } else {
-            currItem.classList.remove('show');
-            currItem.classList.add('hide');
-        }
-    });
+  certificateItems.forEach((currItem) => {
+    if (filterValue === 'all' || currItem.classList.contains(filterValue)) {
+      currItem.classList.remove('hide');
+      currItem.classList.add('show');
+    } else {
+      currItem.classList.remove('show');
+      currItem.classList.add('hide');
+    }
+  });
 };
 
 /*===== 01) Gallery Filtering functionality =====*/
 certificateTabs.forEach((currTab) => {
-    currTab.addEventListener('click', (e) => {
-        // removing the existing 'active' class from the tabs.
-        e.target.parentElement.querySelector('.active').classList.remove('active');
-        // adding the 'active' class to the currently clicked tab.
-        e.target.classList.add('active');
-        let filterValue = e.target.getAttribute('data-filter');
-        filterGallery(filterValue);
-    });
+  currTab.addEventListener('click', (e) => {
+    // Remove the existing 'active' class from the tabs
+    e.target.parentElement.querySelector('.active').classList.remove('active');
+    // Add the 'active' class to the currently clicked tab
+    e.target.classList.add('active');
+    let filterValue = e.target.getAttribute('data-filter');
+    filterGallery(filterValue);
+  });
 });
 
-// Initialize the certificate by setting the "Camera" tab as active
+// Initialize the gallery by setting the "Web_Dev" tab as active
 document.addEventListener('DOMContentLoaded', () => {
-    const initialTab = document.querySelector('.certificate_tabs li[data-filter="Web_Dev"]');
-    initialTab.classList.add('active');
-    filterGallery('Web_Dev');
+  const initialTab = document.querySelector('.certificate_tabs li[data-filter="Web_Dev"]');
+  initialTab.classList.add('active');
+  filterGallery('Web_Dev');
 });
 
 /*===== 02) Lightbox functionality =====*/
 certificateImgs.forEach((currImg) => {
-    currImg.addEventListener('click', (e) => {
-        let imgSrc = e.target.getAttribute('src');
-        lightboxImg.setAttribute('src', imgSrc);
-        lightbox.classList.add('open');
-        body.classList.add('overflow_hide');
-    });
+  currImg.addEventListener('click', (e) => {
+    let imgSrc = e.target.getAttribute('src');
+    lightboxImg.setAttribute('src', imgSrc);
+    lightbox.classList.add('open');
+    body.classList.add('overflow_hide');
+  });
 });
 
-// Function for closing the Lightbox
+// Function to close the Lightbox
 const lightboxClose = () => {
-    lightbox.classList.remove('open');
-    body.classList.remove('overflow_hide');
+  lightbox.classList.remove('open');
+  body.classList.remove('overflow_hide');
 };
 
-// closing the lightbox on clicking the lightboxClose btn.
+// Close the lightbox on clicking the lightboxClose button
 lightboxCloseBtn.addEventListener('click', lightboxClose);
 
-// closing the lightbox on clicking outside of it.
+// Close the lightbox when clicking outside of it
 window.addEventListener('click', (e) => {
-    if (e.target.className === 'lightbox_wrapper') {
-        lightboxClose();
-    }
+  if (e.target.className === 'lightbox_wrapper') {
+    lightboxClose();
+  }
 });
 
-// closing the lightbox on pressing the Escape key.
+// Close the lightbox on pressing the Escape key
 window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        lightboxClose();
-    }
+  if (e.key === 'Escape') {
+    lightboxClose();
+  }
 });
 
-/*==================== PORTFOLIO SWIPER  ====================*/
+/*==================== PORTFOLIO SWIPER ====================*/
 let swiperPortfolio = new Swiper(".portfolio__container", {
   cssMode: true,
   loop: true,
-
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
-
 });
-
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
@@ -181,7 +175,7 @@ function scrollActive() {
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight;
     const sectionTop = current.offsetTop - 50;
-    sectionId = current.getAttribute("id");
+    const sectionId = current.getAttribute("id");
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
       document
@@ -199,7 +193,7 @@ window.addEventListener("scroll", scrollActive);
 /*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader() {
   const nav = document.getElementById("header");
-  // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
+  // When the scroll is greater than 80 viewport height, add the scroll-header class to the header tag
   if (this.scrollY >= 80) nav.classList.add("scroll-header");
   else nav.classList.remove("scroll-header");
 }
@@ -215,7 +209,6 @@ function scrollUp() {
 window.addEventListener("scroll", scrollUp);
 
 /*==================== DARK LIGHT THEME ====================*/
-
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
 const iconTheme = "uil-sun";
@@ -232,21 +225,15 @@ const getCurrentIcon = () =>
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-  );
-  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](
-    iconTheme
-  );
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](iconTheme);
 }
 
 // Activate / deactivate the theme manually with the button
 themeButton.addEventListener("click", () => {
-  // Add or remove the dark / icon theme
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
+  // Save the theme and the current icon that the user chose
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });

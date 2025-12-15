@@ -1,0 +1,96 @@
+/*==================== SKILLS ====================*/
+.skillsContainer {
+  display: flex;
+  overflow: hidden;
+  padding: 2rem 0;
+  margin-bottom: var(--mb-2-5);
+  width: 70%; /* Adjust width to accommodate more items */
+  margin: auto auto;
+}
+
+.scroll-content {
+  display: flex;
+  align-items: center;
+  animation: scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%); /* Ensure the content scrolls fully */
+  }
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffffda;
+  box-shadow: 0px 5px 10px var(--first-color);
+  border-radius: 2vw;
+  width: 14vw;
+  height: 14vw;
+  margin: 0 1rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.skill:hover {
+  transform: scale(1.15);
+  box-shadow: 0px 5px 10px var(--first-color-alt);
+}
+
+.skill img {
+  height: 6vw;
+  width: 6vw;
+}
+
+.skill div {
+  font-size: 2.1vw;
+  margin-top: 1vw;
+}
+
+.skill:hover div {
+  color: var(--first-color);
+}
+
+/* Adjustments for small screens */
+@media screen and (max-width: 768px) {
+  .skillsContainer {
+    width: 90%;
+    margin: auto;
+  }
+
+  .skill {
+    width: 24vw; /* Make items smaller */
+    height: 24vw;
+  }
+
+  .skill img {
+    height: 12vw; /* Adjust image size */
+    width: 12vw;
+  }
+
+  .skill div {
+    font-size: 4vw; /* Adjust font size */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skill {
+    width: 32vw; /* Further adjustments for smaller screens */
+    height: 32vw;
+  }
+
+  .skill img {
+    height: 16vw;
+    width: 16vw;
+  }
+
+  .skill div {
+    font-size: 5vw;
+  }
+}

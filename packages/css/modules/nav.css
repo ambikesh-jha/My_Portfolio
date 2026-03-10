@@ -1,0 +1,351 @@
+/* ============================================================
+   HEADER & NAV — Redesigned
+   - Transparent on hero, frosted glass on scroll
+   - Left logo, right links (text-only desktop)
+   - Active pill highlight
+   - Right drawer on mobile
+   - "Contact Me" CTA button
+   ============================================================ */
+
+/* ── Header shell ── */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-fixed);
+    /* Start transparent */
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s ease, border-color 0.4s ease,
+                box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Scrolled state — frosted glass */
+.header.scrolled {
+    background: var(--body-color);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom-color: rgba(23, 171, 207, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+body.dark-theme .header.scrolled {
+    background: var(--body-color);
+}
+
+/* ── Nav container ── */
+.nav {
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* ── Logo ── */
+.nav__logo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--title-color);
+    letter-spacing: -0.2px;
+    white-space: nowrap;
+    transition: opacity 0.25s ease;
+    flex-shrink: 0;
+}
+
+.nav__logo:hover { opacity: 0.8; }
+
+.nav__logo-accent {
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-second));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+/* ── Desktop nav list ── */
+.nav__menu { display: contents; } /* dissolves into flex row on desktop */
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* Hide icons on desktop */
+.nav__icon { display: none; }
+
+.nav__link:hover {
+    color: var(--title-color);
+    background: rgba(23, 171, 207, 0.07);
+}
+
+/* Active pill */
+.nav__link.active-link {
+    color: var(--first-color);
+    background: rgba(23, 171, 207, 0.12);
+    font-weight: 600;
+}
+
+/* ── Right side buttons ── */
+.nav__btns {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-shrink: 0;
+}
+
+/* Theme toggle */
+.nav__theme {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1.5px solid rgba(23, 171, 207, 0.2);
+    background: transparent;
+    color: var(--text-color);
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.nav__theme:hover {
+    border-color: var(--first-color);
+    color: var(--first-color);
+    background: rgba(23, 171, 207, 0.08);
+}
+
+/* Contact Me CTA */
+.nav__cta--desktop {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.15rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-second));
+    box-shadow: 0 3px 12px rgba(23, 171, 207, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    letter-spacing: 0.2px;
+}
+
+.nav__cta--desktop i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.nav__cta--desktop:hover {
+    box-shadow: 0 5px 20px rgba(23, 171, 207, 0.45);
+    transform: translateY(-1px);
+}
+
+.nav__cta--desktop:hover i { transform: translateX(3px); }
+
+/* ── Hamburger toggle — 3 lines ── */
+.nav__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1.5px solid rgba(23, 171, 207, 0.2);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0 8px;
+    transition: border-color 0.25s ease;
+}
+
+.nav__toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--title-color);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+}
+
+.nav__toggle:hover { border-color: var(--first-color); }
+
+/* ── Hamburger → X when open ── */
+.nav__toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav__toggle.open span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+.nav__toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ============================================================
+   MOBILE — Right Drawer
+   ============================================================ */
+@media screen and (min-width: 769px) {
+    .nav__drawer-header { display: none; }
+    .nav__cta--drawer   { display: none; }
+    .nav__overlay       { display: none; }
+    .nav__drawer {
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        display: contents;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Show hamburger */
+    .nav__toggle { display: flex; }
+
+    /* Hide desktop CTA */
+    .nav__cta--desktop { display: none; }
+
+    /* Nav menu becomes the drawer system */
+    .nav__menu { display: block; }
+
+    /* Dark overlay */
+    .nav__overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(3px);
+        z-index: 99;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+    }
+
+    .nav__menu.show-menu .nav__overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Drawer panel */
+    .nav__drawer {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(300px, 85vw);
+        height: 100vh;
+        background: var(--container-color);
+        border-left: 1px solid rgba(23, 171, 207, 0.12);
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.25);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+    }
+
+    .nav__menu.show-menu .nav__drawer {
+        right: 0;
+    }
+
+    /* Drawer header */
+    .nav__drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid rgba(23, 171, 207, 0.08);
+    }
+
+    .nav__drawer-logo {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--title-color);
+    }
+
+    .nav__close {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid rgba(23, 171, 207, 0.2);
+        background: transparent;
+        color: var(--text-color);
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+
+    .nav__close:hover {
+        border-color: var(--first-color);
+        color: var(--first-color);
+        transform: rotate(90deg);
+    }
+
+    /* Drawer list */
+    .nav__list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        padding: 1rem 1rem;
+    }
+
+    .nav__link {
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+        font-size: 0.95rem;
+        gap: 0.75rem;
+    }
+
+    /* Show icons on mobile */
+    .nav__icon { display: block; font-size: 1.1rem; }
+
+    /* Drawer CTA */
+    .nav__cta--drawer {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: auto 1.5rem 2rem;
+        padding: 0.85rem 1.5rem;
+        border-radius: 2rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(135deg, var(--first-color), var(--first-color-second));
+        box-shadow: 0 4px 16px rgba(23, 171, 207, 0.3);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .nav__cta--drawer:hover {
+        box-shadow: 0 6px 24px rgba(23, 171, 207, 0.45);
+        transform: translateY(-2px);
+    }
+}

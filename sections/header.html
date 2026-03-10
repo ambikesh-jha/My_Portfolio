@@ -1,46 +1,84 @@
 <header class="header" id="header">
     <nav class="nav container">
-        <a href="#" class="nav__logo"><span>A</span>mbikesh Jha</a>
+
+        <!-- ── Logo ── -->
+        <a href="index.html" class="nav__logo">
+            <span class="nav__logo-accent">A</span>mbikesh Jha
+        </a>
+
+        <!-- ── Desktop links + CTA ── -->
         <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list grid">
-                <li class="nav__item">
-                    <a href="#home" class="nav__link">
-                        <i class="uil uil-estate nav__icon"></i>Home
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#about" class="nav__link">
-                        <i class="uil uil-user nav__icon"></i>About
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#skills" class="nav__link">
-                        <i class="uil uil-file-alt nav__icon"></i>Skills
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#services" class="nav__link">
-                        <i class="uil uil-briefcase-alt nav__icon"></i>Certificates
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#portfolio" class="nav__link">
-                        <i class="uil uil-scenery nav__icon"></i>Projects                               
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a href="#contact" class="nav__link">
-                        <i class="uil uil-message nav__icon"></i>Contact                               
-                    </a>
-                </li>
-            </ul>
-            <i class="uil uil-times nav__close" id="nav-close"></i>
-        </div>
-        <div class="nav__btns">
-            <i class="uil uil-moon change-theme" id="theme-button"></i>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="uil uil-apps"></i>
+
+            <!-- Overlay (mobile) -->
+            <div class="nav__overlay" id="nav-overlay"></div>
+
+            <!-- Drawer -->
+            <div class="nav__drawer">
+                <div class="nav__drawer-header">
+                    <span class="nav__drawer-logo">
+                        <span class="nav__logo-accent">A</span>mbikesh Jha
+                    </span>
+                    <button class="nav__close" id="nav-close" aria-label="Close menu">
+                        <i class="uil uil-times"></i>
+                    </button>
+                </div>
+
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <i class="uil uil-estate nav__icon"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="about.html" class="nav__link">
+                            <i class="uil uil-user nav__icon"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="about.html#skills" class="nav__link">
+                            <i class="uil uil-brackets-curly nav__icon"></i>
+                            <span>Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="certificates.html" class="nav__link">
+                            <i class="uil uil-award nav__icon"></i>
+                            <span>Certificates</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="projects.html" class="nav__link">
+                            <i class="uil uil-scenery nav__icon"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- CTA inside drawer (mobile) -->
+                <a href="contact.html" class="nav__cta nav__cta--drawer">
+                    <i class="uil uil-message"></i>
+                    Contact Me
+                </a>
             </div>
         </div>
+
+        <!-- ── Right side: theme + CTA + toggle ── -->
+        <div class="nav__btns">
+            <button class="nav__theme" id="theme-button" aria-label="Toggle theme">
+                <i class="uil uil-moon"></i>
+            </button>
+            <a href="contact.html" class="nav__cta nav__cta--desktop">
+                Contact Me
+                <i class="uil uil-arrow-right"></i>
+            </a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
     </nav>
 </header>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Ambikesh Jha – Let's build something together">
+    
+    <script src="./packages/js/theme-init.js"></script>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./packages/css/styles.css">
+    
+    <title>Contact – Ambikesh Jha</title>
+</head>
+
+<body>
+    <!--==================== PAGE LOADER ====================-->
+    <div id="page-loader"><span>loading page...</span><div class="loader__dots"><i></i><i></i><i></i></div></div>
+
+    <!--==================== HEADER ====================-->
+    <div id="header-placeholder"></div>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+
+        <!--==================== CONTACT HERO ====================-->
+        <div class="contact-hero">
+            <div class="container">
+                <div class="contact-hero__eyebrow">
+                    <i class="uil uil-envelope-alt"></i> Get In Touch
+                </div>
+                <h1 class="contact-hero__title">
+                    Let's Build Something<br><span>Great Together...</span>
+                </h1>
+                <p class="contact-hero__subtitle">
+                    Have a project in mind or just want to say hi? My inbox is always open, I'll get back to you within 24 hours.
+                </p>
+                <div class="contact-hero__avail">
+                    <span class="avail-dot"></span>
+                    Currently available for new projects
+                </div>
+            </div>
+        </div>
+
+        <!--==================== CONTACT SECTION ====================-->
+        <section class="contact section" id="contact">
+            <div class="contact__container container">
+
+                <!--===== LEFT: info =====-->
+                <div class="contact__left">
+                    <div>
+                        <h2 class="contact__left-heading">
+                            Drop me a <span>message</span>
+                        </h2>
+                        <p class="contact__left-desc">
+                            Whether it's a full-stack system, an AI pipeline, or a quick question — I'm open to collaborations, freelance work, and interesting conversations.
+                        </p>
+                    </div>
+
+                    <div class="contact__info-cards">
+                        <a href="tel:+919857200000" class="contact__info-card">
+                            <div class="contact__info-icon">
+                                <i class="uil uil-phone-alt"></i>
+                            </div>
+                            <div class="contact__info-text">
+                                <p class="contact__info-label">Phone</p>
+                                <span class="contact__info-value">(+91) 985720****</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:jhaambikesh8@gmail.com" class="contact__info-card">
+                            <div class="contact__info-icon">
+                                <i class="uil uil-envelope"></i>
+                            </div>
+                            <div class="contact__info-text">
+                                <p class="contact__info-label">Email</p>
+                                <span class="contact__info-value">jhaambikesh8@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <div class="contact__info-card">
+                            <div class="contact__info-icon">
+                                <i class="uil uil-map-marker"></i>
+                            </div>
+                            <div class="contact__info-text">
+                                <p class="contact__info-label">Location</p>
+                                <span class="contact__info-value">Chandigarh, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact__socials">
+                        <span class="contact__socials-label">Find me on</span>
+                        <a href="https://www.linkedin.com/in/ambikesh-jha/" target="_blank" class="contact__social-btn" title="LinkedIn">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                        <a href="https://github.com/ambikesh-jha" target="_blank" class="contact__social-btn" title="GitHub">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://x.com/Ambikesh_jha_" target="_blank" class="contact__social-btn" title="Twitter / X">
+                            <i class="uil uil-twitter-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!--===== RIGHT: form =====-->
+                <div class="contact__form-card">
+
+                    <!-- success state -->
+                    <div class="contact__success" id="contact-success">
+                        <div class="success-icon"><i class="uil uil-check"></i></div>
+                        <p class="success-title">Message Sent!</p>
+                        <p class="success-msg">Thanks for reaching out. I'll get back to you within 24 hours.</p>
+                        <button class="success-reset" id="success-reset">Send Another</button>
+                    </div>
+
+                    <!-- form body -->
+                    <div class="contact__form-inner" id="contact-form-inner">
+                        <h3 class="contact__form-title">Send a Email Message</h3>
+                        <p class="contact__form-subtitle">All fields are required</p>
+
+                        <form id="contact-form" novalidate>
+                            <div class="contact__fields-row">
+                                <div class="contact__field">
+                                    <input type="text" id="cf-name" name="user_name" placeholder=" " autocomplete="name" required>
+                                    <label for="cf-name">Your Name</label>
+                                    <span class="contact__field-error">Please enter your name</span>
+                                </div>
+                                <div class="contact__field">
+                                    <input type="email" id="cf-email" name="user_email" placeholder=" " autocomplete="email" required>
+                                    <label for="cf-email">Email Address</label>
+                                    <span class="contact__field-error">Enter a valid email</span>
+                                </div>
+                            </div>
+
+                            <div class="contact__field">
+                                <input type="text" id="cf-subject" name="subject" placeholder=" " required>
+                                <label for="cf-subject">Subject</label>
+                                <span class="contact__field-error">Please enter a subject</span>
+                            </div>
+
+                            <div class="contact__field">
+                                <textarea id="cf-message" name="message" placeholder=" " required></textarea>
+                                <label for="cf-message">Your Message</label>
+                                <span class="contact__field-error">Please write your message</span>
+                            </div>
+
+                            <button type="submit" class="contact__submit" id="contact-submit">
+                                <p class="btn-text">Send Message</p>
+
+                                <i class="uil uil-message btn-icon"></i>
+                                <span class="btn-spinner"></span> 
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <div id="footer-placeholder"></div>
+
+    <!--==================== SCRIPTS ====================-->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="./packages/js/loadSections.js"></script>
+
+    <script type="module">
+        import { initNav }    from './packages/js/modules/nav.js';
+        import { initTheme }  from './packages/js/modules/theme.js';
+        import { initContact } from './packages/js/modules/contact.js';
+
+        document.addEventListener('sectionsLoaded', () => {
+            initNav();
+            initTheme();
+            initContact();
+        });
+    </script>
+</body>
+</html>

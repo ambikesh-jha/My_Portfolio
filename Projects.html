@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects – Ambikesh Jha's portfolio of AI, ML, backend and web projects">
+
+    <script src="./packages/js/theme-init.js"></script>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./packages/css/styles.css">
+
+    <title>Projects – Ambikesh Jha</title>
+</head>
+
+<body>
+    <!--==================== PAGE LOADER ====================-->
+    <div id="page-loader"><span>Loading page...</span><div class="loader__dots"><i></i><i></i><i></i></div></div>
+
+    <!--==================== HEADER ====================-->
+    <div id="header-placeholder"></div>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+    <section class="proj-section section" id="projects">
+
+        <div class="container">
+
+            <!-- ══════════════════════════════════════
+                 SECTION HEADER
+            ══════════════════════════════════════ -->
+            <div class="proj__header">
+                <span class="proj__eyebrow">Selected Work</span>
+                <h2 class="section__title"><span>M</span>y <span>P</span>rojects</h2>
+                <p class="proj__header-desc">
+                    End-to-end systems across AI, data science, and backend engineering —
+                    from research prototypes to deployed tools.
+                </p>
+            </div>
+
+            <!-- ══════════════════════════════════════
+                 ZONE 1 — HERO (injected by renderProjects)
+            ══════════════════════════════════════ -->
+            <div class="proj__hero" id="projHero"></div>
+
+            <!-- ══════════════════════════════════════
+                 ZONE 2 — MAIN PROJECTS GRID
+            ══════════════════════════════════════ -->
+            <div class="proj__zone-header">
+                <h3 class="proj__zone-title">All Projects</h3>
+
+                <!-- Controls row -->
+                <div class="proj__controls">
+                    <!-- Search -->
+                    <div class="proj__search-wrap">
+                        <i class="uil uil-search proj__search-icon"></i>
+                        <input type="text" id="projSearch" class="proj__search"
+                               placeholder="Search projects…" autocomplete="off">
+                        <button class="proj__search-clear" id="projSearchClear"
+                                aria-label="Clear search">
+                            <i class="uil uil-times"></i>
+                        </button>
+                    </div>
+
+                    <!-- Sort -->
+                    <div class="proj__sort-wrap">
+                        <i class="uil uil-sort-amount-down proj__sort-icon"></i>
+                        <select id="projSort" class="proj__sort">
+                            <option value="newest">Newest first</option>
+                            <option value="oldest">Oldest first</option>
+                            <option value="az">A → Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Filter tabs -->
+                <div class="proj__filters" id="projFilters">
+                    <button class="proj__filter-btn active" data-filter="all">
+                        All <span class="proj__filter-count">0</span>
+                    </button>
+                    <button class="proj__filter-btn" data-filter="aiml">
+                        AI / ML / Data Science<span class="proj__filter-count">0</span>
+                    </button>
+                    <button class="proj__filter-btn" data-filter="backend">
+                        Backend / Systems <span class="proj__filter-count">0</span>
+                    </button>
+                    <button class="proj__filter-btn" data-filter="tools">
+                        Tools &amp; Utilities <span class="proj__filter-count">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- No results -->
+            <div class="proj__empty" id="projEmpty">
+                <i class="uil uil-search-minus"></i>
+                <p>No projects match your search.</p>
+                <button class="proj__empty-reset" id="projEmptyReset">Clear filters</button>
+            </div>
+
+            <!-- Grid (injected by renderProjects) -->
+            <div class="proj__grid" id="projGrid"></div>
+
+            <!-- ══════════════════════════════════════
+                 ZONE 3 — PRACTICE / PLAYGROUND
+            ══════════════════════════════════════ -->
+            <div class="proj__playground" id="projPlayground">
+                <button class="proj__playground-toggle" id="projPlaygroundToggle">
+                    <div class="proj__playground-toggle-left">
+                        <span class="proj__playground-icon"><i class="uil uil-flask"></i></span>
+                        <div>
+                            <span class="proj__playground-label">Practice Projects</span>
+                            <span class="proj__playground-sublabel">Built to learn specific technologies</span>
+                        </div>
+                    </div>
+                    <div class="proj__playground-toggle-right">
+                        <span class="proj__playground-count" id="projPlaygroundCount">0 projects</span>
+                        <i class="uil uil-angle-down proj__playground-chevron"></i>
+                    </div>
+                </button>
+
+                <!-- Mini cards injected by renderProjects -->
+                <div class="proj__playground-grid" id="projPlaygroundGrid"></div>
+
+            </div>
+
+        </div><!-- /.container -->
+    </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <div id="footer-placeholder"></div>
+
+    <!--==================== SCRIPTS ====================-->
+    <script src="./packages/js/loadSections.js"></script>
+    <script type="module">
+        import { initNav }                            from './packages/js/modules/nav.js';
+        import { initTheme }                          from './packages/js/modules/theme.js';
+        import { renderProjects, initProjects }       from './packages/js/modules/project.js';
+        import { updateAllExperience }           from './packages/js/modules/experience.js'
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            initProjects();
+        });
+
+        document.addEventListener('sectionsLoaded', () => {
+            initNav();
+            initTheme();
+            updateAllExperience();
+        });
+    </script>
+
+</body>
+</html>

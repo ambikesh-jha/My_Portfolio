@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Certificates - Ambikesh Jha's professional certifications and credentials">
+
+    <!-- Theme init MUST come before CSS to prevent flash of light mode -->
+    <script src="./packages/js/theme-init.js"></script>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./packages/css/styles.css">
+
+    <title>Certificates – Ambikesh Jha</title>
+</head>
+
+<body>
+    <!--==================== PAGE LOADER ====================-->
+    <div id="page-loader"><span>loading page...</span><div class="loader__dots"><i></i><i></i><i></i></div></div>
+
+    <!--==================== HEADER ====================-->
+    <div id="header-placeholder"></div>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <section class="cert-section section" id="services">
+
+            <div class="container">
+
+                <!-- ── Section Header ── -->
+                <div class="cert__header">
+                    <span class="cert__eyebrow">Validated Expertise</span>
+                    <h2 class="section__title">
+                        <span>M</span>y <span>C</span>ertifications
+                    </h2>
+                    <p class="cert__header-desc">
+                        Industry-recognised certifications across AI, backend engineering, and computer science fundamentals.
+                    </p>
+                </div>
+
+                <!-- ── Filter Tabs ── -->
+                <div class="cert__filters" id="certFilters">
+                    <button class="cert__filter-btn active" data-filter="all">
+                        All <span class="cert__filter-count">0</span>
+                    </button>
+                    <button class="cert__filter-btn" data-filter="Data_Sci">
+                        AI / ML <span class="cert__filter-count">0</span>
+                    </button>
+                    <button class="cert__filter-btn" data-filter="Server & Deployment">
+                        Server & Deployment <span class="cert__filter-count">0</span>
+                    </button>
+                    <button class="cert__filter-btn" data-filter="tools">
+                        Tools <span class="cert__filter-count">0</span>
+                    </button>
+                    <button class="cert__filter-btn" data-filter="Web_Dev">
+                        Web Dev <span class="cert__filter-count">0</span>
+                    </button>
+                    <button class="cert__filter-btn" data-filter="Course_work">
+                        Course Work <span class="cert__filter-count">0</span>
+                    </button>
+                </div>
+
+                <!-- ── Featured cert injected by renderCertificates() ── -->
+                <div class="cert__featured" id="certFeatured"></div>
+
+                <!-- ── Grid injected by renderCertificates() ── -->
+                <div class="cert__grid" id="certGrid"></div>
+
+            </div><!-- /.container -->
+
+        </section>
+    </main>
+
+    <!-- ── Lightbox ── -->
+    <div class="cert__lightbox" id="certLightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+        <div class="cert__lightbox-backdrop" id="certLightboxBackdrop"></div>
+        <div class="cert__lightbox-box">
+            <button class="cert__lightbox-close" id="certLightboxClose" aria-label="Close">
+                <i class="uil uil-times"></i>
+            </button>
+            <div class="cert__lightbox-img-wrap">
+                <img class="cert__lightbox-img" id="certLightboxImg" src="" alt="Certificate">
+            </div>
+            <div class="cert__lightbox-footer">
+                <span class="cert__lightbox-name" id="certLightboxName"></span>
+                <div class="cert__lightbox-nav">
+                    <button class="cert__lightbox-nav-btn" id="certLightboxPrev" aria-label="Previous">
+                        <i class="uil uil-angle-left"></i>
+                    </button>
+                    <span class="cert__lightbox-counter" id="certLightboxCounter"></span>
+                    <button class="cert__lightbox-nav-btn" id="certLightboxNext" aria-label="Next">
+                        <i class="uil uil-angle-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--==================== FOOTER ====================-->
+    <div id="footer-placeholder"></div>
+
+    <!--==================== SCRIPTS ====================-->
+    <script src="./packages/js/loadSections.js"></script>
+    <script type="module">
+        import { initNav }                               from './packages/js/modules/nav.js';
+        import { initTheme }                             from './packages/js/modules/theme.js';
+        import { renderCertificates, initCertificates }  from './packages/js/modules/certificates.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCertificates();
+            initCertificates();
+        });
+
+        document.addEventListener('sectionsLoaded', () => {
+            initNav();
+            initTheme();
+        });
+    </script>
+
+</body>
+</html>

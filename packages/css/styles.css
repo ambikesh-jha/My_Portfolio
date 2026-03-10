@@ -2,15 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 @import "./modules/variables.css";
+@import './modules/landing.css';
 @import "./modules/base.css";
-@import "./modules/header.css";
-@import "./modules/home.css";
+@import "./modules/nav.css";
 @import "./modules/about.css";
-@import "./modules/qualification.css";
-@import "./modules/skills.css";
-@import "./modules/services.css";
-@import "./modules/portfolio.css";
+@import "./modules/certificates.css";
 @import "./modules/project.css";
 @import "./modules/contact.css";
-@import "./modules/footer.css";
-@import "./modules/scroll.css"; 
+@import "./modules/footer.css"; 

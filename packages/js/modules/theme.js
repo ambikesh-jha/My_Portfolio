@@ -1,26 +1,29 @@
-// theme.js: Handles theme toggle and persistence
+// theme.js
+// Default theme is DARK. Toggling adds/removes body.light-theme.
+// The dark-mode class (dark-theme) is no longer used — dark is
+// the CSS default in :root, light is the override class.
+
 export function initTheme() {
-  const themeButton = document.getElementById("theme-button");
-  const darkTheme = "dark-theme";
-  const iconTheme = "uil-sun";
+    const themeButton = document.getElementById('theme-button');
+    if (!themeButton) return;
 
-  const selectedTheme = localStorage.getItem("selected-theme");
-  const selectedIcon = localStorage.getItem("selected-icon");
+    const themeIcon  = themeButton.querySelector('i');
+    const lightTheme = 'light-theme';
 
-  const getCurrentTheme = () =>
-    document.body.classList.contains(darkTheme) ? "dark" : "light";
-  const getCurrentIcon = () =>
-    themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun";
+    // ── Sync icon to current theme state ──
+    // light-theme class already applied to body by theme-init.js if needed
+    function syncIcon() {
+        const isLight = document.body.classList.contains(lightTheme);
+        themeIcon.classList.toggle('uil-moon', isLight);  // light mode → show moon
+        themeIcon.classList.toggle('uil-sun',  !isLight); // dark mode  → show sun
+    }
 
-  if (selectedTheme) {
-    document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
-    themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](iconTheme);
-  }
+    syncIcon();
 
-  themeButton.addEventListener("click", () => {
-    document.body.classList.toggle(darkTheme);
-    themeButton.classList.toggle(iconTheme);
-    localStorage.setItem("selected-theme", getCurrentTheme());
-    localStorage.setItem("selected-icon", getCurrentIcon());
-  });
+    // ── Toggle on click ──
+    themeButton.addEventListener('click', () => {
+        const isLight = document.body.classList.toggle(lightTheme);
+        syncIcon();
+        localStorage.setItem('selected-theme', isLight ? 'light' : 'dark');
+    });
 }

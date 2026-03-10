@@ -1,38 +1,78 @@
 <footer class="footer">
-    <div class="footer__bg">
-        <div class="footer__container container grid">
-            <div>
-                <h1 class="footer__title">Ambikesh Jha</h1>
-                <span class="footer__subtitle">Junior Software Engineer-Artificial Intelligence</span>
+
+    <!-- Top gradient accent line -->
+    <div class="footer__accent-line"></div>
+
+    <div class="footer__inner container">
+
+        <!-- ── Main 3-column row ── -->
+        <div class="footer__main">
+
+            <!-- Col 1: Identity -->
+            <div class="footer__identity">
+                <h2 class="footer__name">Ambikesh Jha</h2>
+                <span class="footer__role">AI Engineer &amp; Backend Developer</span>
+                <p class="footer__tagline">
+                    Building intelligent systems that<br>turn complexity into clarity.
+                </p>
             </div>
 
-            <ul class="footer__links">
-                <li>
-                    <a href="#services" class="footer__link">Certificate</a>
-                </li>
-                <li>
-                    <a href="#portfolio" class="footer__link">Projects</a>
-                </li>
-                <li>
-                    <a href="#contact" class="footer__link">Contact</a>
-                </li>
-            </ul>
+            <!-- Col 2: Navigation -->
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <span class="footer__nav-heading">Explore</span>
+                <ul class="footer__links">
+                    <li><a href="about.html"                class="footer__link">About</a></li>
+                    <li><a href="about.html#qualification"  class="footer__link">Experience</a></li>
+                    <li><a href="about.html#skills"         class="footer__link">Skills</a></li>
+                    <li><a href="certificates.html"         class="footer__link">Certificates</a></li>
+                    <li><a href="projects.html"             class="footer__link">Projects</a></li>
+                    <li><a href="contact.html"              class="footer__link">Contact</a></li>
+                </ul>
+            </nav>
 
-            <div class="footer__socials">
-                <a href="https://www.linkedin.com/in/ambikesh-jha/" target="_blank" class="footer__social">
-                    <i class="uil uil-linkedin-alt"></i>
-                </a>
-                <a href="https://x.com/Ambikesh_jha_" target="_blank" class="footer__social">
-                    <i class="uil uil-twitter-alt"></i>
-                </a>
-                <a href="https://github.com/ambikesh-jha" target="_blank" class="footer__social">
-                    <i class="uil uil-github-alt"></i>
-                </a>
-                <a href="https://www.instagram.com/ambikesh_jha_/" target="_blank" class="footer__social">
-                <i class="uil uil-instagram"></i>
-                </a>
+            <!-- Col 3: Socials -->
+            <div class="footer__connect">
+                <span class="footer__nav-heading">Connect</span>
+                <div class="footer__socials">
+                    <a href="https://www.linkedin.com/in/ambikesh-jha/"
+                       target="_blank" rel="noopener"
+                       class="footer__social" aria-label="LinkedIn">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <a href="https://github.com/ambikesh-jha"
+                       target="_blank" rel="noopener"
+                       class="footer__social" aria-label="GitHub">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+                    <a href="https://x.com/Ambikesh_jha_"
+                       target="_blank" rel="noopener"
+                       class="footer__social" aria-label="Twitter / X">
+                        <i class="uil uil-twitter-alt"></i>
+                    </a>
+                    <a href="https://www.instagram.com/ambikesh_jha_/"
+                       target="_blank" rel="noopener"
+                       class="footer__social" aria-label="Instagram">
+                        <i class="uil uil-instagram"></i>
+                    </a>
+                </div>
             </div>
+
         </div>
-        <p class="footer__copy">&#169; Ambikesh Jha. All rights reserved.</p>
+
+        <!-- ── Bottom bar ── -->
+        <div class="footer__bottom">
+            <p class="footer__copy">
+                &copy; <span id="footerYear"></span> Ambikesh Jha.
+                All rights reserved.
+            </p>
+
+            <!-- Back to top -->
+            <a href="#" class="footer__back-top" aria-label="Back to top">
+                <i class="uil uil-arrow-up"></i>
+                <span>Back to top</span>
+            </a>
+        </div>
+
     </div>
+
 </footer>

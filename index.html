@@ -3,57 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ambikesh Jha - Associate Software Engineer specializing in AI, Backend Engineering, and Intelligent Automation">
 
     <!--==================== UNICONS ====================-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="./packages/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="./packages/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="./packages/js/theme-init.js"></script>
 
-    <title>Ambikesh</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./packages/css/styles.css">
+        
+    <title>Home – Ambikesh Jha</title>
 </head>
 
 <body>
+    <!--==================== PAGE LOADER ====================-->
+    <div id="page-loader"><span>loading page...</span><div class="loader__dots"><i></i><i></i><i></i></div></div>
+
     <!--==================== HEADER ====================-->
     <div id="header-placeholder"></div>
 
     <!--==================== MAIN ====================-->
     <main class="main">
-        <!--==================== HOME ====================-->
-        <div id="home-placeholder" class="home section" data-section="home"></div>
-        
-        <!--==================== ABOUT ====================-->
-        <div id="about-placeholder" class="about section" data-section="about"></div>
-        
-        <!--==================== QUALIFICATION ====================-->
-        <div id="qualification-placeholder" class="qualification__section"></div>
-        
-        <!--==================== SKILLS ====================-->
-        <div id="skills-placeholder" class="skills section" data-section="skills"></div>
-        
-        <!--==================== CERTIFICATES ====================-->
-        <div id="services-placeholder" class="services section" data-section="services"></div>
-        
-        <!--==================== PROJECTS ====================-->
-        <div id="portfolio-placeholder" class="portfolio section" data-section="portfolio"></div>
-        
-        <!--==================== CONNECT WITH ME ====================-->
-        <div id="project-placeholder" class="project section"></div>
-        
-        <!--==================== CONTACT ME ====================-->
-        <div id="contact-placeholder" class="contact section" data-section="contact"></div>
+
+        <!--==================== HERO ====================-->
+        <section class="hero section" id="home">
+            <div class="hero__container container grid">
+                <div class="hero__content">
+                    <div class="hero__social">
+                        <a href="https://www.linkedin.com/in/ambikesh-jha/" target="_blank" class="hero__social-icon" title="LinkedIn">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                        <a href="https://x.com/Ambikesh_jha_" target="_blank" class="hero__social-icon" title="Twitter">
+                            <i class="uil uil-twitter-alt"></i>
+                        </a>
+                        <a href="https://github.com/ambikesh-jha" target="_blank" class="hero__social-icon" title="GitHub">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero__data">
+                        <h1 class="hero__title">Hi, I'm <span class="hero__title-span">Ambikesh Jha</span></h1>
+                        <h3 class="hero__subtitle">
+                            <span class="typing-text"></span>
+                        </h3>
+                        <p class="hero__description">
+                            I build intelligent systems that combine AI, backend engineering, and data processing. Transforming complex problems into scalable, production-ready solutions.
+                        </p>
+                        <div class="hero__buttons">
+                            <a href="about.html" class="button button--primary button--flex hero__button">
+                                Learn More About Me <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                            <a href="contact.html" class="button button--secondary button--flex hero__button">
+                                Let's Build Something <i class="uil uil-chevron-down button__icon"></i>
+                            </a>
+                        </div>
+                        <div class="hero__scroll">
+                            <span>Scroll to explore</span>
+                            <i class="uil uil-chevron-down hero__scroll-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero__img">
+                    <svg class="hero__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <defs>
+                            <linearGradient id="gradientBlob" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--first-color);stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:var(--first-color-second);stop-opacity:0.6" />
+                            </linearGradient>
+                        </defs>
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" fill="url(#gradientBlob)"/>
+                            <image class="hero__blob-img" x="0" y="-10" xlink:href="packages/images/My_image.png"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== STATS ====================-->
+        <!-- Cards injected by landing.js → STATS_DATA -->
+        <section class="stats section">
+            <div class="stats__container container grid"></div>
+        </section>
+
+        <!--==================== HIGHLIGHTS ====================-->
+        <!-- Cards injected by landing.js → HIGHLIGHTS_DATA -->
+        <section class="highlights section">
+            <div class="highlights__container container">
+                <h2 class="highlights__title">What I Specialize In</h2>
+                <div class="highlights__grid grid"></div>
+            </div>
+        </section>
+
+        <!--==================== TECH STACK ====================-->
+        <!-- Groups + badges injected by landing.js → TECH_STACK_DATA -->
+        <section class="tech-stack section">
+            <div class="tech-stack__container container">
+                <h2 class="tech-stack__title">Tech Stack</h2>
+                <div class="tech-stack__grid"></div>
+            </div>
+        </section>
+
+        <!--==================== FEATURED PROJECTS ====================-->
+        <!-- Cards injected by landing.js → PROJECTS_DATA -->
+        <section class="featured-projects section">
+            <div class="featured-projects__container container">
+                <h2 class="featured-projects__title">Recent Projects</h2>
+                <div class="featured-projects__grid grid"></div>
+                <div class="featured-projects__cta">
+                    <a href="projects.html" class="button button--primary button--flex">
+                        See All Projects <i class="uil uil-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!--==================== FOOTER ====================-->
     <div id="footer-placeholder"></div>
 
-    <!--==================== SCROLL TOP ====================-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-arrow-up scrollup__icon"></i>
-    </a>
-
     <!--==================== SCRIPTS ====================-->
-    <script src="./packages/js/swiper-bundle.min.js"></script>
-    <script src="./loadSections.js"></script>  
+    <script src="./packages/js/loadSections.js"></script>
+    <script type="module">
+        import { initNav }               from './packages/js/modules/nav.js';
+        import { initTheme }             from './packages/js/modules/theme.js';
+        import { initLandingAnimations } from './packages/js/modules/landing.js';
+
+        document.addEventListener('sectionsLoaded', () => {
+            initNav();
+            initTheme();
+            initLandingAnimations();
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Ambikesh Jha - Software Engineer with expertise in AI and Backend Engineering">
+
+    <script src="./packages/js/theme-init.js"></script>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./packages/css/styles.css">
+
+    <title>About – Ambikesh Jha</title>
+</head>
+
+<body>
+    <!--==================== PAGE LOADER ====================-->
+    <div id="page-loader"><span>loading page...</span><div class="loader__dots"><i></i><i></i><i></i></div></div>
+
+    <!--==================== HEADER ====================-->
+    <div id="header-placeholder"></div>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+
+        <!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+
+            <div class="about__header">
+                <h2 class="section__title"><span>M</span>y <span>I</span>ntroduction</h2>
+            </div>
+
+            <div class="about__container container">
+                <div class="about__content">
+
+                    <!-- ── LEFT ── -->
+                    <div class="about__left">
+
+                        <div class="about__img-wrapper">
+                            <div class="about__img-frame">
+                                <img src="packages/images/Ambikesh_img.jpg"
+                                     alt="Ambikesh Jha" class="about__img">
+                                <div class="about__availability-badge">
+                                    <span class="about__availability-dot"></span>
+                                    Available for Collaboration
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Info cards injected by renderInfoCards() -->
+                        <div class="about__info"></div>
+
+                        <div class="about__buttons">
+                            <a download href="packages/images/Ambikesh Jha.pdf"
+                               class="button button--flex about__download-btn">
+                                <i class="uil uil-download-alt button__icon"
+                                   style="margin-left:0; margin-right:0.5rem;"></i>
+                                Download CV
+                            </a>
+                        </div>
+
+                    </div><!-- /.about__left -->
+
+                    <!-- ── RIGHT ── -->
+                    <div class="about__right">
+
+                        <div class="about__description-wrapper">
+
+                            <p class="about__description">
+                                Software Engineer with <span data-exp="full"></span> of enterprise AI experience,
+                                specialising in Agentic AI architectures, LLM integration, and Azure AI services.
+                                Currently leading end-to-end delivery of a medical data processing system across
+                                four enterprise-level projects, owning the full lifecycle from solution architecture
+                                through to stakeholder deployment.
+                            </p>
+
+                            <div class="about__description-more">
+                                <p class="about__description">
+                                    My approach is defined by analytical rigour, engineering precision, and a drive
+                                    to optimise. I build systems that eliminate operational complexity and deliver
+                                    measurable impact: from reducing pipeline execution time from 40 minutes to
+                                    8 seconds, to orchestrating multi-agent frameworks for sensitive healthcare
+                                    data at scale.
+                                </p>
+                                <p class="about__description">
+                                    Looking ahead, I aim to grow into a senior technical role within AI and Machine
+                                    Learning: contributing through innovation, research-driven thinking, and
+                                    leadership. I am motivated by building systems that genuinely transform how
+                                    organisations operate and create enduring value.
+                                </p>
+                                <p class="about__description">
+                                    Outside of work, I stay sharp through fitness, travel, and recreation — habits
+                                    that reinforce the same principles I bring to every project: consistency,
+                                    resilience, and continuous growth.
+                                </p>
+                            </div>
+
+                            <button class="about__read-more-btn" aria-expanded="false">
+                                <span class="about__read-more-label">Read More</span>
+                                <i class="uil uil-angle-down about__read-more-icon"></i>
+                            </button>
+
+                        </div><!-- /.about__description-wrapper -->
+
+                        <!-- What You Can Expect -->
+                        <div class="about__expect">
+                            <h3 class="about__expect-title">What You Can Expect</h3>
+                            <!-- Expect cards injected by renderExpectCards() -->
+                            <div class="about__expect-grid"></div>
+                        </div><!-- /.about__expect -->
+
+                    </div><!-- /.about__right -->
+
+                </div><!-- /.about__content -->
+            </div><!-- /.about__container -->
+
+        </section>
+
+        <!--==================== MY JOURNEY ====================-->
+        <section class="qualification__section" id="qualification">
+
+            <div class="qualification__header">
+                <h2 class="section__title"><span>M</span>y personal journey</h2>
+            </div>
+
+            <div class="qualification__container container">
+                <div class="qualification__tabs">
+                    <div class="qualification__button button--flex qualification__active" data-target="#work">
+                        <i class="uil uil-graduation-cap qualification__icon"></i>
+                        Experience
+                    </div>
+                    <div class="qualification__button button--flex" data-target="#education">
+                        <i class="uil uil-briefcase-alt qualification__icon"></i>
+                        Education
+                    </div>
+                </div>
+            </div>
+
+            <div class="qualification__sections">
+                <!-- Timeline items injected by renderQualification() -->
+                <div class="qualification__content qualification__active" data-content id="work"></div>
+                <div class="qualification__content" data-content id="education"></div>
+            </div>
+
+        </section>
+
+        <!--==================== MODALS mount point ====================-->
+        <!-- renderModals() appends all .services__modal elements here -->
+        <div id="modalsMount"></div>
+
+        <!--==================== SKILLS ====================-->
+        <section class="skills section" id="skills">
+
+            <div class="skills__header">
+                <h2 class="section__title">
+                    <span>M</span>y <span>T</span>echnical <span>S</span>kills
+                </h2>
+            </div>
+
+            <div class="skills__filters">
+                <button class="skills__filter-btn active" data-filter="all">All</button>
+                <button class="skills__filter-btn" data-filter="ai">AI / ML</button>
+                <button class="skills__filter-btn" data-filter="backend">Backend</button>
+                <button class="skills__filter-btn" data-filter="tools">Tools</button>
+                <button class="skills__filter-btn" data-filter="frontend">Frontend</button>
+                <button class="skills__filter-btn" data-filter="Language">Languages</button>
+            </div>
+
+            <div class="skills__hint-banner" id="skillsHintBanner">
+                <i class="uil uil-lightbulb-alt"></i>
+                <span>Click any card to explore details</span>
+            </div>
+
+            <!-- Skill cards injected by renderSkills() -->
+            <div class="skills__grid" id="skillsGrid"></div>
+
+        </section>
+
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <div id="footer-placeholder"></div>
+
+    <!--==================== CERT MODAL ====================-->
+    <div class="cert__modal" id="certModal" role="dialog" aria-modal="true">
+        <div class="cert__modal-backdrop"></div>
+        <div class="cert__modal-box">
+            <button class="cert__modal-close" aria-label="Close">
+                <i class="uil uil-times"></i>
+            </button>
+            <img class="cert__modal-img" src="" alt="Certificate" />
+        </div>
+    </div>
+
+    <!--==================== SCRIPTS ====================-->
+    <script src="./packages/js/loadSections.js"></script>
+    <script type="module">
+        import { initNav }                                    from './packages/js/modules/nav.js';
+        import { initTheme }                                  from './packages/js/modules/theme.js';
+        import { initAbout, initQualification, initSkillsGrid } from './packages/js/modules/about.js';
+        import { renderInfoCards, renderExpectCards, renderSkills, renderQualification, renderModals } from './packages/js/modules/about-render.js';
+
+        // Runs immediately — doesn't need header in DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            renderInfoCards();
+            renderExpectCards();
+            renderSkills();
+            renderQualification();
+            renderModals();
+            initAbout();
+            initQualification();
+            initSkillsGrid();
+        });
+        if (window.location.hash === '#qualification') {
+            const eduBtn = document.querySelector('[data-target="#education"]');
+            const eduContent = document.getElementById('education');
+            const workBtn = document.querySelector('[data-target="#work"]');
+            const workContent = document.getElementById('work');
+
+            if (eduBtn && eduContent) {
+                workBtn?.classList.remove('qualification__active');
+                workContent?.classList.remove('qualification__active');
+                eduBtn.classList.add('qualification__active');
+                eduContent.classList.add('qualification__active');
+            }
+        }
+
+        // Runs after header is injected by loadSections.js
+        document.addEventListener('sectionsLoaded', () => {
+            initNav();
+            initTheme();
+        });
+    </script>
+
+</body>
+</html>

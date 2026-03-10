@@ -26,7 +26,7 @@
    ============================================================ */
 
 export const HERO_PROJECT = {
-    img:      './packages/images/Portfolio.jpg',
+    img:      'packages/images/Profile_img.jpeg',
     alt:      'My Portfolio',
     tagClass: 'tools',
     tagLabel: 'Creative',

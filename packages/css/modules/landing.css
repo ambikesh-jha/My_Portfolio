@@ -229,6 +229,116 @@
 .button__icon { transition: transform 0.3s ease; }
 .button:hover .button__icon { transform: translateX(3px); }
 
+/*==================== CV DOWNLOAD BUTTON ====================*/
+.button--cv {
+    position: relative;
+    background: linear-gradient(135deg, #0f2027, #1a3a4a, #0f2027);
+    background-size: 200% 200%;
+    color: #fff;
+    border: 1.5px solid rgba(23, 171, 207, 0.5);
+    border-radius: 0.65rem;
+    padding: 0 1.4rem;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease forwards, cvGradientShift 4s ease infinite;
+    animation-delay: 0.3s, 0s;
+    box-shadow: 0 0 18px rgba(23, 171, 207, 0.15), inset 0 0 20px rgba(23, 171, 207, 0.04);
+    text-decoration: none;
+    min-height: 48px;
+}
+
+@keyframes cvGradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50%       { background-position: 100% 50%; }
+}
+
+.cv-btn__inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 2;
+}
+
+.cv-btn__icon {
+    font-size: 1.55rem;
+    color: var(--first-color);
+    filter: drop-shadow(0 0 6px rgba(23, 171, 207, 0.7));
+    animation: cvIconPulse 2.5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes cvIconPulse {
+    0%, 100% { transform: translateY(0) scale(1);   opacity: 1; }
+    50%       { transform: translateY(-3px) scale(1.15); opacity: 0.85; }
+}
+
+.cv-btn__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.cv-btn__label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--first-color);
+    opacity: 0.85;
+    font-weight: 600;
+}
+
+.cv-btn__main {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+/* Shimmer sweep */
+.cv-btn__shimmer {
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(23, 171, 207, 0.18),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: cvShimmer 3.5s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes cvShimmer {
+    0%   { left: -75%; }
+    60%, 100% { left: 130%; }
+}
+
+/* Hover state */
+.button--cv:hover {
+    border-color: var(--first-color);
+    box-shadow:
+        0 0 28px rgba(23, 171, 207, 0.35),
+        0 8px 24px rgba(23, 171, 207, 0.25),
+        inset 0 0 30px rgba(23, 171, 207, 0.07);
+    transform: translateY(-3px);
+    background-position: 100% 50%;
+}
+
+.button--cv:hover .cv-btn__icon {
+    color: #fff;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+    animation: none;
+    transform: translateY(-2px) scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.button--cv:hover .cv-btn__label { opacity: 1; }
+
+
 /*==================== STATS ====================*/
 .stats {
     padding: var(--mb-3-5) 0;

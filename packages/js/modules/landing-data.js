@@ -125,7 +125,7 @@ export const TECH_STACK_DATA = [
 
 export const PROJECTS_DATA = [
     {
-        img:         'packages/images/Portfolio.jpg',
+        img:         'packages/images/Profile_img_half.jpeg',
         alt:         'My Portfolio',
         name:        'My Portfolio',
         description: 'A responsive web portfolio with animations and smooth interactions built with HTML, CSS, and JavaScript.',

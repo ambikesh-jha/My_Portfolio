@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         { id: 'about-placeholder',         file: 'sections/about.html' },
         { id: 'qualification-placeholder', file: 'sections/qualification.html' },
         { id: 'certificates-placeholder',  file: 'sections/certificates.html' },
-        { id: 'project-placeholder',       file: 'sections/project.html' },
+        { id: 'project-placeholder',       file: 'sections/projects.html' },
         { id: 'contact-placeholder',       file: 'sections/contact.html' },
         { id: 'footer-placeholder',        file: 'sections/footer.html' }
     ];

@@ -53,7 +53,7 @@ export const STATS_DATA = [
         target:  5,
         suffix:  '+',
         label:   'Personal Projects',
-        link:    'projects.html'
+        link:    'Projects.html'
     }
 ];
 
@@ -129,20 +129,20 @@ export const PROJECTS_DATA = [
         alt:         'My Portfolio',
         name:        'My Portfolio',
         description: 'A responsive web portfolio with animations and smooth interactions built with HTML, CSS, and JavaScript.',
-        link:        'projects.html'
+        link:        'Projects.html'
     },
     {
         img:         'packages/images/NLP image.png',
         alt:         'Natural Language Processing Toolkit',
         name:        'NLP Toolkit',
         description: 'End-to-end NLP pipeline for text preprocessing and feature engineering using classical and neural word-embedding techniques.',
-        link:        'projects.html'
+        link:        'Projects.html'
     },
     {
         img:         'packages/images/Crop recommendation.png',
         alt:         'Crop Recommendation',
         name:        'Crop Recommendation AI',
         description: 'Machine learning model that recommends suitable crops based on soil and environmental conditions.',
-        link:        'projects.html'
+        link:        'Projects.html'
     }
 ];

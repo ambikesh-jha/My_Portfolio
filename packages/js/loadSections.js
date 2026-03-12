@@ -1,19 +1,5 @@
 // loadSections.js
 document.addEventListener('DOMContentLoaded', async () => {
-
-    // ── Resolve base path so fetches work on GitHub Pages AND locally ──
-    // e.g. on GH Pages your site might live at /your-repo-name/
-    // Strips the current filename to get the directory, then navigates up
-    // to the root where /sections/ lives.
-    const getBase = () => {
-        const path = location.pathname;
-        // If we're on a subpage like /projects.html, go up one level
-        const dir = path.endsWith('/') ? path : path.substring(0, path.lastIndexOf('/') + 1);
-        return `${location.origin}${dir}`;
-    };
-
-    const base = getBase();
-
     const sections = [
         { id: 'header-placeholder',        file: 'sections/header.html' },
         { id: 'home-placeholder',          file: 'sections/home.html' },
@@ -25,16 +11,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         { id: 'footer-placeholder',        file: 'sections/footer.html' }
     ];
 
+    // ── 1. Hide body until sections are ready (prevents blank flash) ──
     document.body.classList.add('sections-loading');
 
+    // ── 2. Load all HTML sections in parallel ──
     try {
         await Promise.all(
             sections.map(async ({ id, file }) => {
                 const el = document.getElementById(id);
                 if (!el) return;
-                // Use absolute URL built from base
-                const response = await fetch(`${base}${file}`);
-                if (!response.ok) throw new Error(`Failed to load ${file}: ${response.status}`);
+                const response = await fetch(file);
+                if (!response.ok) throw new Error(`Failed to load ${file}`);
                 el.innerHTML = await response.text();
             })
         );
@@ -43,12 +30,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Section loading error:', error);
     }
 
+    // ── 3. Stamp footer year ──
     const footerYear = document.getElementById('footerYear');
     if (footerYear) footerYear.textContent = new Date().getFullYear();
 
+    // ── 4. Reveal body with a smooth fade-in ──
     document.body.classList.remove('sections-loading');
     document.body.classList.add('sections-ready');
 
+    // ── 5. Fire event so page modules know DOM is ready ──
     document.dispatchEvent(new Event('sectionsLoaded'));
     console.log('sectionsLoaded event fired!');
 });

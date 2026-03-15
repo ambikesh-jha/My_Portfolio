@@ -1,8 +1,4 @@
 // project.js
-// Sections:
-// 1. renderProjects  – stamps hero, grid cards, mini cards from data
-// 2. initProjects    – filter, search, sort, playground toggle
-
 import { HERO_PROJECT, GRID_PROJECTS, MINI_PROJECTS } from './project-data.js';
 
 
@@ -25,11 +21,9 @@ function buildStackChips(stack, wrapClass = 'proj__card-stack') {
     return `<div class="${wrapClass}">${stack.map(s => `<span class="proj__stack-chip">${s}</span>`).join('')}</div>`;
 }
 
-
 /* ============================================================
    1. RENDER PROJECTS
    ============================================================ */
-
 export function renderProjects() {
 
     /* ── Hero ── */
@@ -40,9 +34,7 @@ export function renderProjects() {
             <div class="proj__hero-img-wrap">
                 <img src="${h.img}" alt="${h.alt}" class="proj__hero-img">
                 <div class="proj__hero-img-overlay"></div>
-                <span class="proj__hero-featured-badge">
-                    <i class="uil uil-star"></i> Featured
-                </span>
+                <span class="proj__hero-featured-badge"><i class="uil uil-star"></i> Featured</span>
             </div>
             <div class="proj__hero-body">
                 <div class="proj__hero-meta">
@@ -53,9 +45,14 @@ export function renderProjects() {
                 <p class="proj__hero-desc">${h.desc}</p>
                 <div class="proj__hero-stats">
                     ${h.stats.map(s => {
-                        const valueHTML = s.icon
-                            ? `<a href="${s.link}" class="proj__hero-stat-link"><i class="uil ${s.icon} proj__hero-stat-icon"></i></a>`
-                            : `<span class="proj__hero-stat-value" ${s.expAttr ? `data-exp="${s.expAttr}"` : ''}>${s.value ?? ''}</span>`;
+                        let valueHTML = '';
+                        if (s.icon) {
+                            valueHTML = `<a href="${s.link}" class="proj__hero-stat-link"><i class="uil ${s.icon} proj__hero-stat-icon"></i></a>`;
+                        } else if (s.expAttr === 'full') {
+                            valueHTML = `<span class="proj__hero-stat-value">Full</span>`;
+                        } else {
+                            valueHTML = `<span class="proj__hero-stat-value">${s.value}</span>`;
+                        }
                         return `
                             <div class="proj__hero-stat">
                                 ${valueHTML}
@@ -78,10 +75,10 @@ export function renderProjects() {
 
         GRID_PROJECTS.forEach(p => {
             const article = document.createElement('article');
-            article.className        = 'proj__card';
+            article.className = 'proj__card';
             article.dataset.category = p.category;
-            article.dataset.year     = p.year;
-            article.dataset.title    = p.title;
+            article.dataset.year = p.year;
+            article.dataset.title = p.title;
             if (p.featured) article.dataset.featured = 'true';
 
             article.innerHTML = `
@@ -162,23 +159,32 @@ export function initProjects() {
     const filterBtns  = document.querySelectorAll('.proj__filter-btn');
     const searchInput = document.getElementById('projSearch');
     const searchClear = document.getElementById('projSearchClear');
-    const sortSelect  = document.getElementById('projSort');
-    const emptyState  = document.getElementById('projEmpty');
-    const emptyReset  = document.getElementById('projEmptyReset');
-    const grid        = document.getElementById('projGrid');
-    const playground  = document.getElementById('projPlayground');
-    const pgToggle    = document.getElementById('projPlaygroundToggle');
-    const pgCount     = document.getElementById('projPlaygroundCount');
+    const sortSelect = document.getElementById('projSort');
+    const emptyState = document.getElementById('projEmpty');
+    const emptyReset = document.getElementById('projEmptyReset');
+    const grid = document.getElementById('projGrid');
+    const playground = document.getElementById('projPlayground');
+    const pgToggle = document.getElementById('projPlaygroundToggle');
+    const pgCount = document.getElementById('projPlaygroundCount');
 
     if (!cards.length) return;
 
-    // ── State ──
-    let activeFilter   = 'all';
-    let searchQuery    = '';
-    let sortOrder      = 'newest';
-    let initialReveal  = true;
+    // Proper date parser for "Jan, 2025", "Nov, 2024", "March, 2026" etc.
+    const monthMap = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+    function getSortValue(yearStr) {
+        if (!yearStr) return 0;
+        const y = yearStr.match(/\d{4}/)?.[0] || 0;
+        const mMatch = yearStr.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\b/i);
+        const m = mMatch ? monthMap[mMatch[0].toLowerCase()] : 1;
+        return parseInt(y) * 100 + m;
+    }
 
-    // ── Build filter counts ──
+    let activeFilter = 'all';
+    let searchQuery = '';
+    let sortOrder = 'newest';
+    let initialReveal = true;
+
+    // Filter counts
     const countMap = { all: cards.length };
     cards.forEach(card => {
         (card.dataset.category || '').split(' ').forEach(cat => {
@@ -190,80 +196,69 @@ export function initProjects() {
         if (el) el.textContent = countMap[btn.dataset.filter] || 0;
     });
 
-    // ── Playground count ──
+    // Playground count
     const miniCards = document.querySelectorAll('.proj__mini-card');
-    if (pgCount) {
-        pgCount.textContent = `${miniCards.length} project${miniCards.length !== 1 ? 's' : ''}`;
-    }
+    if (pgCount) pgCount.textContent = `${miniCards.length} project${miniCards.length !== 1 ? 's' : ''}`;
 
-    // ── Core render ──
     function renderCards() {
-        const cardArr = [...cards];
+        let cardArr = [...cards];
 
-        // Sort
+        // FIXED SORTING
         cardArr.sort((a, b) => {
-            if (sortOrder === 'newest') return (b.dataset.year || 0) - (a.dataset.year || 0);
-            if (sortOrder === 'oldest') return (a.dataset.year || 0) - (b.dataset.year || 0);
-            if (sortOrder === 'az')     return (a.dataset.title || '').localeCompare(b.dataset.title || '');
+            if (sortOrder === 'newest') return getSortValue(b.dataset.year) - getSortValue(a.dataset.year);
+            if (sortOrder === 'oldest') return getSortValue(a.dataset.year) - getSortValue(b.dataset.year);
+            if (sortOrder === 'az') return (a.dataset.title || '').localeCompare(b.dataset.title || '');
             return 0;
         });
 
-        // Re-order DOM
-        cardArr.forEach(card => grid?.appendChild(card));
+        cardArr.forEach(card => grid.appendChild(card));
 
-        let visibleCount = 0;
-
+        let visible = 0;
         cardArr.forEach(card => {
-            const cats  = (card.dataset.category || '').split(' ');
+            const cats = (card.dataset.category || '').split(' ');
             const title = (card.dataset.title || '').toLowerCase();
-            const desc  = card.querySelector('.proj__card-desc')?.textContent.toLowerCase() || '';
-            const stack = [...card.querySelectorAll('.proj__stack-chip')]
-                .map(c => c.textContent.toLowerCase()).join(' ');
+            const desc = card.querySelector('.proj__card-desc')?.textContent.toLowerCase() || '';
+            const stack = [...card.querySelectorAll('.proj__stack-chip')].map(c => c.textContent.toLowerCase()).join(' ');
 
-            const matchFilter = activeFilter === 'all' || cats.includes(activeFilter);
-            const matchSearch = !searchQuery ||
-                title.includes(searchQuery) ||
-                desc.includes(searchQuery) ||
+            const filterMatch = activeFilter === 'all' || cats.includes(activeFilter);
+            const searchMatch = !searchQuery || 
+                title.includes(searchQuery) || 
+                desc.includes(searchQuery) || 
                 stack.includes(searchQuery);
 
-            if (matchFilter && matchSearch) {
+            if (filterMatch && searchMatch) {
                 card.classList.remove('hidden');
                 if (!initialReveal) {
-                    // Subsequent renders (filter/search/sort): animate immediately
                     card.classList.remove('revealed');
-                    card.style.animationDelay = `${(visibleCount % 6) * 0.08}s`;
                     void card.offsetWidth;
                     card.classList.add('revealed');
                 }
-                visibleCount++;
+                visible++;
             } else {
                 card.classList.add('hidden');
                 card.classList.remove('revealed');
             }
         });
 
-        if (emptyState) {
-            emptyState.classList.toggle('visible', visibleCount === 0);
-        }
+        emptyState?.classList.toggle('visible', visible === 0);
     }
 
-    // ── Scroll reveal via IntersectionObserver (initial load only) ──
-    const observer = new IntersectionObserver((entries) => {
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !entry.target.classList.contains('hidden')) {
                 entry.target.classList.add('revealed');
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.15 });
 
     cards.forEach(card => observer.observe(card));
 
-    // Initial render — does NOT add 'revealed', observer handles it
     renderCards();
     initialReveal = false;
 
-    // ── Filter tabs ──
+    // filter tabs
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -281,10 +276,8 @@ export function initProjects() {
     });
 
     searchClear?.addEventListener('click', () => {
-        if (searchInput) searchInput.value = '';
-        searchQuery = '';
+        searchInput.value = ''; searchQuery = '';
         searchClear.classList.remove('visible');
-        searchInput?.focus();
         renderCards();
     });
 
@@ -294,20 +287,12 @@ export function initProjects() {
         renderCards();
     });
 
-    // ── Reset from empty state ──
     emptyReset?.addEventListener('click', () => {
-        activeFilter = 'all';
-        searchQuery  = '';
-        if (searchInput) searchInput.value = '';
-        searchClear?.classList.remove('visible');
-        filterBtns.forEach(b => {
-            b.classList.toggle('active', b.dataset.filter === 'all');
-        });
+        activeFilter = 'all'; searchQuery = '';
+        searchInput.value = ''; searchClear?.classList.remove('visible');
+        filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
         renderCards();
     });
 
-    // ── Playground toggle ──
-    pgToggle?.addEventListener('click', () => {
-        playground?.classList.toggle('open');
-    });
+    pgToggle?.addEventListener('click', () => playground?.classList.toggle('open'));
 }

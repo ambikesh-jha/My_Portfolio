@@ -99,6 +99,7 @@
 /* ── About section ── */
 .about.section {
     position: relative;
+    overflow: hidden; 
 }
 body {
     overflow-x: hidden;
@@ -133,9 +134,10 @@ body {
 }
 
 /* ── Qualification section ── */
-.qualification__section {
+/* .qualification__section {
     position: relative;
-}
+    overflow: hidden;
+} */
 
 .qualification__section::before {
     content: '';
@@ -747,6 +749,8 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
 .qualification__header {
@@ -1190,7 +1194,10 @@ body {
    12. SKILLS – HEADER & FILTERS
    ============================================================ */
 
-.skills.section { padding: 5rem 0; }
+.skills.section { 
+    padding: 5rem 0;
+    overflow: hidden; 
+}
 
 .skills__header {
     text-align: center;

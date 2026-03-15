@@ -211,19 +211,40 @@
             initQualification();
             initSkillsGrid();
         });
-        if (window.location.hash === '#qualification') {
-            const eduBtn = document.querySelector('[data-target="#education"]');
-            const eduContent = document.getElementById('education');
-            const workBtn = document.querySelector('[data-target="#work"]');
-            const workContent = document.getElementById('work');
+        // if (window.location.hash === '#qualification') {
+        //     const eduBtn = document.querySelector('[data-target="#education"]');
+        //     const eduContent = document.getElementById('education');
+        //     const workBtn = document.querySelector('[data-target="#work"]');
+        //     const workContent = document.getElementById('work');
 
-            if (eduBtn && eduContent) {
-                workBtn?.classList.remove('qualification__active');
-                workContent?.classList.remove('qualification__active');
-                eduBtn.classList.add('qualification__active');
-                eduContent.classList.add('qualification__active');
+        //     if (eduBtn && eduContent) {
+        //         workBtn?.classList.remove('qualification__active');
+        //         workContent?.classList.remove('qualification__active');
+        //         eduBtn.classList.add('qualification__active');
+        //         eduContent.classList.add('qualification__active');
+        //     }
+        // }
+        // ✅ Replace the entire hash block with this
+        const hash = window.location.hash; // '#work' or '#education'
+
+        if (hash === '#education' || hash === '#work') {
+            const targetBtn     = document.querySelector(`[data-target="${hash}"]`);
+            const targetContent = document.getElementById(hash.slice(1));
+
+            if (targetBtn && targetContent) {
+                // Deactivate all tabs and content
+                document.querySelectorAll('.qualification__button')
+                    .forEach(b => b.classList.remove('qualification__active'));
+                document.querySelectorAll('.qualification__content')
+                    .forEach(c => c.classList.remove('qualification__active'));
+
+                // Activate the correct one
+                targetBtn.classList.add('qualification__active');
+                targetContent.classList.add('qualification__active');
             }
+            history.replaceState(null, '', '#qualification');
         }
+        
 
         // Runs after header is injected by loadSections.js
         document.addEventListener('sectionsLoaded', () => {

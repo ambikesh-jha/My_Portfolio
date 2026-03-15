@@ -36,7 +36,7 @@ export const HERO_PROJECT = {
     stats: [
         { value: '4+',     label: 'Enterpris<br>Projects' },
         { expAttr: 'full', label: 'Of Industry<br>Experience' },
-        { icon: 'uil-graduation-cap', link: 'about.html#qualification', label: 'Domain<br>Education' }
+        { icon: 'uil-graduation-cap', link: 'about.html#education', label: 'Domain<br>Education' }
     ],
     stack:   ['Python','ML', 'NLP', 'LLM','Grn AI', 'Agentic AI', ],
     actions: [

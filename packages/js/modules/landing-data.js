@@ -37,7 +37,7 @@ export const STATS_DATA = [
         counter:  false,
         expAttr:  'full',
         label:    'Experience',
-        link:     'about.html#qualification'
+        link:     'about.html#work'
     },
     {
         icon:    'uil-award',

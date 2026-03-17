@@ -15,7 +15,10 @@
 
 <body>
     <!--==================== PAGE LOADER ====================-->
-    <div id="page-loader"><span>Loading page...</span><div class="loader__dots"><i></i><i></i><i></i></div></div>
+    <div id="page-loader">
+        <span>Loading page...</span>
+        <div class="loader__dots"><i></i><i></i><i></i></div>
+    </div>
 
     <!--==================== HEADER ====================-->
     <div id="header-placeholder"></div>
@@ -26,9 +29,7 @@
 
         <div class="container">
 
-            <!-- ══════════════════════════════════════ -->
-                 <!-- SECTION HEADER -->
-            <!-- ══════════════════════════════════════ -->
+            <!-- ── Section header ── -->
             <div class="proj__header">
                 <span class="proj__eyebrow">Selected Work</span>
                 <h2 class="section__title"><span>M</span>y <span>P</span>rojects</h2>
@@ -38,34 +39,33 @@
                 </p>
             </div>
 
-            <!-- ══════════════════════════════════════
-                 ZONE 1 — HERO (injected by renderProjects)
-            ══════════════════════════════════════ -->
+            <!-- ── Hero ── -->
             <div class="proj__hero" id="projHero"></div>
 
-            <!-- ══════════════════════════════════════
-                 ZONE 2 — MAIN PROJECTS GRID
-            ══════════════════════════════════════ -->
+            <!-- ── Zone header: controls + filters ── -->
             <div class="proj__zone-header">
-                <h3 class="proj__zone-title">All Projects</h3>
 
-                <!-- Controls row -->
+                <div class="proj__zone-title-row">
+                    <h3 class="proj__zone-title">All Projects</h3>
+                    <span class="proj__count" id="projCount" aria-live="polite" aria-atomic="true"></span>
+                </div>
+
                 <div class="proj__controls">
-                    <!-- Search -->
                     <div class="proj__search-wrap">
-                        <i class="uil uil-search proj__search-icon"></i>
+                        <i class="uil uil-search proj__search-icon" aria-hidden="true"></i>
                         <input type="text" id="projSearch" class="proj__search"
-                               placeholder="Search projects…" autocomplete="off">
+                               placeholder="Search projects or technologies…"
+                               autocomplete="off"
+                               aria-label="Search projects">
                         <button class="proj__search-clear" id="projSearchClear"
                                 aria-label="Clear search">
-                            <i class="uil uil-times"></i>
+                            <i class="uil uil-times" aria-hidden="true"></i>
                         </button>
                     </div>
 
-                    <!-- Sort -->
                     <div class="proj__sort-wrap">
-                        <i class="uil uil-sort-amount-down proj__sort-icon"></i>
-                        <select id="projSort" class="proj__sort">
+                        <i class="uil uil-sort-amount-down proj__sort-icon" aria-hidden="true"></i>
+                        <select id="projSort" class="proj__sort" aria-label="Sort projects">
                             <option value="newest">Newest first</option>
                             <option value="oldest">Oldest first</option>
                             <option value="az">A → Z</option>
@@ -73,54 +73,56 @@
                     </div>
                 </div>
 
-                <!-- Filter tabs -->
-                <div class="proj__filters" id="projFilters">
-                    <button class="proj__filter-btn active" data-filter="all">
-                        All <span class="proj__filter-count">0</span>
+                <div class="proj__filters" id="projFilters" role="group" aria-label="Filter by category">
+                    <button class="proj__filter-btn active" data-filter="all" aria-pressed="true">
+                        All <span class="proj__filter-count" aria-hidden="true">0</span>
                     </button>
-                    <button class="proj__filter-btn" data-filter="aiml">
-                        AI / ML / Data Science<span class="proj__filter-count">0</span>
+                    <button class="proj__filter-btn" data-filter="aiml" aria-pressed="false">
+                        AI / ML <span class="proj__filter-count" aria-hidden="true">0</span>
                     </button>
-                    <button class="proj__filter-btn" data-filter="backend">
-                        Backend / Systems <span class="proj__filter-count">0</span>
+                    <button class="proj__filter-btn" data-filter="datascience" aria-pressed="false">
+                        Data Science <span class="proj__filter-count" aria-hidden="true">0</span>
                     </button>
-                    <button class="proj__filter-btn" data-filter="tools">
-                        Tools &amp; Utilities <span class="proj__filter-count">0</span>
+                    <button class="proj__filter-btn" data-filter="webdev" aria-pressed="false">
+                        Web &amp; Backend <span class="proj__filter-count" aria-hidden="true">0</span>
+                    </button>
+                    <button class="proj__filter-btn" data-filter="computervision" aria-pressed="false">
+                        Computer Vision <span class="proj__filter-count" aria-hidden="true">0</span>
                     </button>
                 </div>
-            </div>
 
-            <!-- No results -->
-            <div class="proj__empty" id="projEmpty">
-                <i class="uil uil-search-minus"></i>
+            </div><!-- /.proj__zone-header -->
+
+            <!-- ── Empty state ── -->
+            <div class="proj__empty" id="projEmpty" role="status" aria-live="polite">
+                <i class="uil uil-search-minus" aria-hidden="true"></i>
                 <p>No projects match your search.</p>
                 <button class="proj__empty-reset" id="projEmptyReset">Clear filters</button>
             </div>
 
-            <!-- Grid (injected by renderProjects) -->
-            <div class="proj__grid" id="projGrid"></div>
+            <!-- ── Main grid ── -->
+            <div class="proj__grid" id="projGrid" aria-label="Projects grid"></div>
 
-            <!-- ══════════════════════════════════════
-                 ZONE 3 — PRACTICE / PLAYGROUND
-            ══════════════════════════════════════ -->
+            <!-- ── Playground accordion ── -->
             <div class="proj__playground" id="projPlayground">
-                <button class="proj__playground-toggle" id="projPlaygroundToggle">
+                <button class="proj__playground-toggle" id="projPlaygroundToggle"
+                        aria-expanded="false" aria-controls="projPlaygroundGrid">
                     <div class="proj__playground-toggle-left">
-                        <span class="proj__playground-icon"><i class="uil uil-flask"></i></span>
+                        <span class="proj__playground-icon" aria-hidden="true">
+                            <i class="uil uil-flask"></i>
+                        </span>
                         <div>
-                            <span class="proj__playground-label">Practice Projects</span>
-                            <span class="proj__playground-sublabel">Built to learn specific technologies</span>
+                            <span class="proj__playground-label">Learning Projects</span>
+                            <span class="proj__playground-sublabel">Practice builds &amp; experiments</span>
                         </div>
                     </div>
                     <div class="proj__playground-toggle-right">
                         <span class="proj__playground-count" id="projPlaygroundCount">0 projects</span>
-                        <i class="uil uil-angle-down proj__playground-chevron"></i>
+                        <i class="uil uil-angle-down proj__playground-chevron" aria-hidden="true"></i>
                     </div>
                 </button>
 
-                <!-- Mini cards injected by renderProjects -->
                 <div class="proj__playground-grid" id="projPlaygroundGrid"></div>
-
             </div>
 
         </div><!-- /.container -->
@@ -133,10 +135,10 @@
     <!--==================== SCRIPTS ====================-->
     <script src="./packages/js/loadSections.js"></script>
     <script type="module">
-        import { initNav }                            from './packages/js/modules/nav.js';
-        import { initTheme }                          from './packages/js/modules/theme.js';
-        import { renderProjects, initProjects }       from './packages/js/modules/project.js';
-        import { updateAllExperience }           from './packages/js/modules/experience.js'
+        import { initNav }                          from './packages/js/modules/nav.js';
+        import { initTheme }                        from './packages/js/modules/theme.js';
+        import { renderProjects, initProjects }     from './packages/js/modules/project.js';
+        import { updateAllExperience }              from './packages/js/modules/experience.js';
 
         document.addEventListener('DOMContentLoaded', () => {
             renderProjects();

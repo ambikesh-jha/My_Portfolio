@@ -1,0 +1,193 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" width="800" height="450">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#071a0e"/>
+      <stop offset="100%" style="stop-color:#0a1f12"/>
+    </linearGradient>
+    <linearGradient id="green1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:0.9"/>
+    </linearGradient>
+    <linearGradient id="barGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#065f46;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.7"/>
+    </linearGradient>
+    <linearGradient id="winnerBar" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#6ee7b7"/>
+    </linearGradient>
+    <radialGradient id="greenOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg2)"/>
+
+  <!-- Orbs -->
+  <ellipse cx="100" cy="200" rx="220" ry="200" fill="url(#greenOrb)" opacity="0.7"/>
+  <ellipse cx="700" cy="120" rx="160" ry="140" fill="url(#greenOrb)" opacity="0.4"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.05" stroke="#10b981" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+  </g>
+
+  <!-- ── Left panel: soil data inputs ── -->
+  <rect x="30" y="60" width="200" height="300" rx="14" fill="#060f08" stroke="#064e2e" stroke-width="1.5"/>
+  <rect x="30" y="60" width="200" height="4" rx="2" fill="url(#green1)"/>
+
+  <text x="130" y="85" text-anchor="middle" font-family="monospace" font-size="10" fill="#6ee7b7" font-weight="700">SOIL PARAMETERS</text>
+
+  <!-- Sensor readings -->
+  <g font-family="monospace" font-size="9" fill="#4ade80">
+    <!-- N -->
+    <text x="50" y="115" fill="#9ca3af">Nitrogen (N)</text>
+    <rect x="50" y="120" width="160" height="5" rx="2.5" fill="#0a2e18"/>
+    <rect x="50" y="120" width="112" height="5" rx="2.5" fill="#059669" opacity="0.8"/>
+    <text x="215" y="128" text-anchor="end" fill="#34d399" font-size="8">70%</text>
+
+    <!-- P -->
+    <text x="50" y="147" fill="#9ca3af">Phosphorus (P)</text>
+    <rect x="50" y="152" width="160" height="5" rx="2.5" fill="#0a2e18"/>
+    <rect x="50" y="152" width="88" height="5" rx="2.5" fill="#059669" opacity="0.7"/>
+    <text x="215" y="160" text-anchor="end" fill="#34d399" font-size="8">55%</text>
+
+    <!-- K -->
+    <text x="50" y="179" fill="#9ca3af">Potassium (K)</text>
+    <rect x="50" y="184" width="160" height="5" rx="2.5" fill="#0a2e18"/>
+    <rect x="50" y="184" width="136" height="5" rx="2.5" fill="#10b981" opacity="0.9"/>
+    <text x="215" y="192" text-anchor="end" fill="#34d399" font-size="8">85%</text>
+
+    <!-- Temp -->
+    <text x="50" y="211" fill="#9ca3af">Temperature</text>
+    <rect x="50" y="216" width="160" height="5" rx="2.5" fill="#0a2e18"/>
+    <rect x="50" y="216" width="104" height="5" rx="2.5" fill="#34d399" opacity="0.8"/>
+    <text x="215" y="224" text-anchor="end" fill="#34d399" font-size="8">65%</text>
+
+    <!-- Humidity -->
+    <text x="50" y="243" fill="#9ca3af">Humidity</text>
+    <rect x="50" y="248" width="160" height="5" rx="2.5" fill="#0a2e18"/>
+    <rect x="50" y="248" width="120" height="5" rx="2.5" fill="#059669" opacity="0.75"/>
+    <text x="215" y="256" text-anchor="end" fill="#34d399" font-size="8">75%</text>
+
+    <!-- pH -->
+    <text x="50" y="275" fill="#9ca3af">pH Level</text>
+    <rect x="50" y="280" width="160" height="5" rx="2.5" fill="#0a2e18"/>
+    <rect x="50" y="280" width="96" height="5" rx="2.5" fill="#6ee7b7" opacity="0.8"/>
+    <text x="215" y="288" text-anchor="end" fill="#34d399" font-size="8">60%</text>
+
+    <!-- Rainfall -->
+    <text x="50" y="307" fill="#9ca3af">Rainfall</text>
+    <rect x="50" y="312" width="160" height="5" rx="2.5" fill="#0a2e18"/>
+    <rect x="50" y="312" width="144" height="5" rx="2.5" fill="#059669" opacity="0.9"/>
+    <text x="215" y="320" text-anchor="end" fill="#34d399" font-size="8">90%</text>
+  </g>
+
+  <!-- Divider + label count -->
+  <line x1="50" y1="338" x2="210" y2="338" stroke="#064e2e" stroke-width="1"/>
+  <text x="130" y="354" text-anchor="middle" font-family="monospace" font-size="9" fill="#6ee7b7">22 CROP CLASSES</text>
+
+  <!-- ── Middle: classifier benchmark bars ── -->
+  <text x="400" y="52" text-anchor="middle" font-family="monospace" font-size="11" fill="#6ee7b7" font-weight="700">MODEL BENCHMARK</text>
+
+  <!-- Bar chart axes -->
+  <line x1="270" y1="340" x2="560" y2="340" stroke="#064e2e" stroke-width="1.5"/>
+  <line x1="270" y1="100" x2="270" y2="340" stroke="#064e2e" stroke-width="1.5"/>
+
+  <!-- Y axis labels -->
+  <g font-family="monospace" font-size="8" fill="#4a5568" text-anchor="end">
+    <text x="262" y="344">0</text>
+    <text x="262" y="284">60</text>
+    <text x="262" y="224">80</text>
+    <text x="262" y="164">90</text>
+    <text x="262" y="104">97</text>
+    <!-- grid lines -->
+    <line x1="270" y1="280" x2="560" y2="280" stroke="#064e2e" stroke-width="0.5" stroke-dasharray="3,3"/>
+    <line x1="270" y1="220" x2="560" y2="220" stroke="#064e2e" stroke-width="0.5" stroke-dasharray="3,3"/>
+    <line x1="270" y1="160" x2="560" y2="160" stroke="#064e2e" stroke-width="0.5" stroke-dasharray="3,3"/>
+    <line x1="270" y1="105" x2="560" y2="105" stroke="#064e2e" stroke-width="0.5" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- Bar 1: Decision Tree ~88% -->
+  <rect x="290" y="196" width="44" height="144" rx="4" fill="url(#barGrad2)" opacity="0.8"/>
+  <text x="312" y="190" text-anchor="middle" font-family="monospace" font-size="9" fill="#6ee7b7">88%</text>
+  <text x="312" y="358" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a5568">DT</text>
+
+  <!-- Bar 2: KNN ~92% -->
+  <rect x="354" y="172" width="44" height="168" rx="4" fill="url(#barGrad2)" opacity="0.85"/>
+  <text x="376" y="166" text-anchor="middle" font-family="monospace" font-size="9" fill="#6ee7b7">92%</text>
+  <text x="376" y="358" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a5568">KNN</text>
+
+  <!-- Bar 3: Naive Bayes ~90% -->
+  <rect x="418" y="184" width="44" height="156" rx="4" fill="url(#barGrad2)" opacity="0.8"/>
+  <text x="440" y="178" text-anchor="middle" font-family="monospace" font-size="9" fill="#6ee7b7">90%</text>
+  <text x="440" y="358" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a5568">NB</text>
+
+  <!-- Bar 4: Random Forest 97.5% — WINNER -->
+  <rect x="482" y="103" width="44" height="237" rx="4" fill="url(#winnerBar)" filter="url(#glow2)"/>
+  <text x="504" y="97" text-anchor="middle" font-family="monospace" font-size="10" fill="#6ee7b7" font-weight="700">97.5%</text>
+  <text x="504" y="358" text-anchor="middle" font-family="monospace" font-size="8" fill="#34d399" font-weight="700">RF ★</text>
+
+  <!-- Winner crown line -->
+  <line x1="504" y1="88" x2="504" y2="102" stroke="#34d399" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <!-- ── Right panel: recommendation output ── -->
+  <rect x="590" y="60" width="180" height="300" rx="14" fill="#060f08" stroke="#064e2e" stroke-width="1.5"/>
+  <rect x="590" y="60" width="180" height="4" rx="2" fill="url(#green1)"/>
+
+  <text x="680" y="84" text-anchor="middle" font-family="monospace" font-size="10" fill="#6ee7b7" font-weight="700">RECOMMENDATION</text>
+
+  <!-- Crop output cards -->
+  <!-- Top crop -->
+  <rect x="605" y="95" width="150" height="52" rx="8" fill="#0a2e18" stroke="#059669" stroke-width="1.5"/>
+  <text x="620" y="114" font-family="monospace" font-size="8" fill="#9ca3af">TOP MATCH</text>
+  <text x="620" y="130" font-family="monospace" font-size="13" fill="#34d399" font-weight="700">🌾 Rice</text>
+  <text x="735" y="130" text-anchor="end" font-family="monospace" font-size="10" fill="#6ee7b7" font-weight="700">97%</text>
+
+  <rect x="605" y="157" width="150" height="40" rx="8" fill="#071a0e" stroke="#064e2e" stroke-width="1"/>
+  <text x="620" y="173" font-family="monospace" font-size="8" fill="#4a5568">2ND</text>
+  <text x="620" y="188" font-family="monospace" font-size="11" fill="#10b981">🌽 Maize</text>
+  <text x="735" y="188" text-anchor="end" font-family="monospace" font-size="9" fill="#6ee7b7">91%</text>
+
+  <rect x="605" y="207" width="150" height="40" rx="8" fill="#071a0e" stroke="#064e2e" stroke-width="1"/>
+  <text x="620" y="223" font-family="monospace" font-size="8" fill="#4a5568">3RD</text>
+  <text x="620" y="238" font-family="monospace" font-size="11" fill="#059669">🥜 Lentil</text>
+  <text x="735" y="238" text-anchor="end" font-family="monospace" font-size="9" fill="#6ee7b7">87%</text>
+
+  <!-- Divider -->
+  <line x1="605" y1="258" x2="755" y2="258" stroke="#064e2e" stroke-width="1"/>
+
+  <!-- Accuracy display -->
+  <text x="680" y="282" text-anchor="middle" font-family="monospace" font-size="28" fill="#34d399" font-weight="700" filter="url(#glow2)">97.5%</text>
+  <text x="680" y="300" text-anchor="middle" font-family="monospace" font-size="9" fill="#6ee7b7">MODEL ACCURACY</text>
+  <text x="680" y="316" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a5568">Random Forest · 22 Classes</text>
+  <text x="680" y="332" text-anchor="middle" font-family="monospace" font-size="8" fill="#4a5568">4 Classifiers Benchmarked</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="390" width="800" height="60" fill="#030d05" opacity="0.8"/>
+  <text x="40" y="420" font-family="monospace" font-size="13" fill="#34d399" font-weight="700">CROP RECOMMENDATION AI</text>
+  <text x="40" y="438" font-family="monospace" font-size="9" fill="#2d5a3d">scikit-learn · Random Forest · 97.5% Accuracy · 22 Crop Classes</text>
+
+  <!-- Tech chips -->
+  <rect x="560" y="400" width="54" height="18" rx="9" fill="#0a2e18" stroke="#059669" stroke-width="1"/>
+  <text x="587" y="413" text-anchor="middle" font-family="monospace" font-size="8" fill="#34d399">scikit-learn</text>
+  <rect x="620" y="400" width="40" height="18" rx="9" fill="#0a2e18" stroke="#10b981" stroke-width="1"/>
+  <text x="640" y="413" text-anchor="middle" font-family="monospace" font-size="8" fill="#6ee7b7">Pandas</text>
+  <rect x="666" y="400" width="48" height="18" rx="9" fill="#0a2e18" stroke="#059669" stroke-width="1"/>
+  <text x="690" y="413" text-anchor="middle" font-family="monospace" font-size="8" fill="#34d399">RandomForest</text>
+  <rect x="720" y="400" width="50" height="18" rx="9" fill="#0a2e18" stroke="#064e2e" stroke-width="1"/>
+  <text x="745" y="413" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ade80">Jupyter</text>
+</svg>

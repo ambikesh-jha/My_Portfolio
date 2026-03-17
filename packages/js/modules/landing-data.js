@@ -27,7 +27,7 @@ export const STATS_DATA = [
     {
         icon:    'uil-briefcase-alt',
         counter: true,
-        target:  4,
+        target:  5,
         suffix:  '+',
         label:   'Enterprise Projects',
         link:    null
@@ -50,7 +50,7 @@ export const STATS_DATA = [
     {
         icon:    'uil-code-branch',
         counter: true,
-        target:  5,
+        target:  15,
         suffix:  '+',
         label:   'Personal Projects',
         link:    'Projects.html'
@@ -123,26 +123,49 @@ export const TECH_STACK_DATA = [
      link        – href for the "View All" button
    ============================================================ */
 
+// export const PROJECTS_DATA = [
+//     {
+//         img:         'packages/images/Profile_img_half.jpeg',
+//         alt:         'My Portfolio',
+//         name:        'My Portfolio',
+//         description: 'A responsive web portfolio with animations and smooth interactions built with HTML, CSS, and JavaScript.',
+//         link:        'Projects.html'
+//     },
+//     {
+//         img:         'packages/images/NLP image.png',
+//         alt:         'Natural Language Processing Toolkit',
+//         name:        'NLP Toolkit',
+//         description: 'End-to-end NLP pipeline for text preprocessing and feature engineering using classical and neural word-embedding techniques.',
+//         link:        'Projects.html'
+//     },
+//     {
+//         img:         'packages/images/Crop recommendation.png',
+//         alt:         'Crop Recommendation',
+//         name:        'Crop Recommendation AI',
+//         description: 'Machine learning model that recommends suitable crops based on soil and environmental conditions.',
+//         link:        'Projects.html'
+//     }
+// ];
 export const PROJECTS_DATA = [
     {
-        img:         'packages/images/Profile_img_half.jpeg',
-        alt:         'My Portfolio',
-        name:        'My Portfolio',
-        description: 'A responsive web portfolio with animations and smooth interactions built with HTML, CSS, and JavaScript.',
+        img:         'packages/images/nlp-llm-suite.svg',
+        alt:         'NLP & LLM Application Suite',
+        name:        'NLP & LLM Application Suite',
+        description: 'Three production pipelines: Hybrid Search RAG with Pinecone, a LangChain conversational agent with Groq Llama 3.1, and an intelligent DAT file processing agent.',
         link:        'Projects.html'
     },
     {
-        img:         'packages/images/NLP image.png',
-        alt:         'Natural Language Processing Toolkit',
-        name:        'NLP Toolkit',
-        description: 'End-to-end NLP pipeline for text preprocessing and feature engineering using classical and neural word-embedding techniques.',
-        link:        'Projects.html'
-    },
-    {
-        img:         'packages/images/Crop recommendation.png',
-        alt:         'Crop Recommendation',
+        img:         'packages/images/crop-recommendation.svg',
+        alt:         'Crop Recommendation AI',
         name:        'Crop Recommendation AI',
-        description: 'Machine learning model that recommends suitable crops based on soil and environmental conditions.',
+        description: 'Multi-model ML system achieving 97.5% accuracy across 22 crop classes by benchmarking 4 classifiers on soil and climate data.',
+        link:        'Projects.html'
+    },
+    {
+        img:         'packages/images/training-dashboard.svg',
+        alt:         'Training Dashboard',
+        name:        'Training Dashboard',
+        description: 'Full-stack Flask app with JWT auth, role-based access for trainers and trainees, real-time task tracking, and MongoDB Atlas persistence.',
         link:        'Projects.html'
     }
 ];
